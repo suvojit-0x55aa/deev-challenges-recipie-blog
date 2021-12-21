@@ -1,0 +1,202 @@
+$header-font:'Playfair Display',
+serif;
+$para-font: 'Montserrat',
+sans-serif;
+$max-board-width: 970px;
+@mixin icon-style {
+    font-size: 1.3rem;
+    padding: 0.5rem;
+}
+
+.board {
+    font-family: $para-font;
+    max-width: $max-board-width;
+    width: 80vw;
+    margin: 0 auto;
+    header {
+        h1 {
+            font-family: $header-font;
+            font-weight: bold;
+            font-size: 3rem;
+            margin-bottom: 0.2rem;
+        }
+        .header-desc {
+            display: flex;
+            align-items: flex-start;
+            font-style: italic;
+            font-weight: 300;
+            div {
+                margin: 0.5em 0.2em;
+            }
+        }
+    }
+    .main-pic img {
+        width: 100%;
+        margin: 1.5rem 0;
+    }
+}
+
+.details-panel {
+    font-weight: 300;
+    line-height: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    h2 {
+        font-family: $header-font;
+        font-weight: 700;
+    }
+    h3 {
+        font-family: $header-font;
+        font-style: italic;
+        font-weight: 400;
+    }
+}
+
+.timing-serving {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    align-self: flex-start;
+    padding: 1rem 0;
+    // height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-items: space-around;
+    .timing-serving-item {
+        display: flex;
+        align-items: center;
+        justify-items: space-between;
+        padding: 1.5rem 2rem;
+        .fas {
+            @include icon-style();
+        }
+        .far {
+            @include icon-style()
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            span:first-child {
+                text-transform: uppercase;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 0.7rem;
+                line-height: 0.9rem;
+                text-transform: uppercase;
+                /* Gray 4 */
+                color: #BDBDBD;
+            }
+            span:last-child {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 0.8rem;
+                line-height: 1.2rem;
+                /* identical to box height */
+                /* Gray 1 */
+                color: #333333;
+            }
+        }
+    }
+    .timing-serving-item:first-child {
+        i {
+            color: #F2994A;
+        }
+        span:last-child {
+            color: #F2994A;
+        }
+    }
+}
+
+.instructions-panel {
+    width: 60%;
+}
+
+.instruction-line {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.7rem;
+    &>div {
+        display: flex;
+        align-items: flex-start;
+        column-gap: 1rem;
+        .numbering {
+            // display: block;
+            // width: 1rem;
+            // height: 1rem;
+            padding: 0.2rem 0.7rem 0.4rem 0.7rem;
+            background-color: #F2994A;
+            align-items: center;
+            text-align: center;
+            font-family: Playfair Display;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: white;
+            border-radius: 6px;
+        }
+        .instruction {
+            strong {
+                display: inline;
+            }
+        }
+    }
+}
+
+.recipie-ingredients {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.2rem;
+    .ingredients-point {
+        display: flex;
+        column-gap: 0.4rem;
+        // align-items: flex-start;
+        .checkmark {
+            // display: inline-block;
+            box-sizing: content-box;
+            border: 1px solid #828282;
+            border-radius: 4px;
+            width: 1rem;
+            height: 1rem;
+            padding: 1rem 1rem;
+            // float: left;
+            //     margin-right: 1.2em;
+        }
+        p {
+            margin: 0 0;
+            display: inline-block;
+            // float: left;
+        }
+    }
+}
+
+@media screen and (orientation: portrait) {
+    .board {
+        width: 95vw;
+        max-width: 95vw;
+        header h1 {
+            font-size: 1.7rem;
+        }
+        .header-desc {
+            width: 96%;
+        }
+    }
+    .details-panel {
+        flex-direction: column-reverse;
+    }
+    .instructions-panel {
+        width: 100%;
+    }
+    .timing-serving {
+        // width: 90%;
+        flex-direction: row;
+        justify-content: space-between;
+        box-shadow: none;
+        flex-wrap: wrap;
+        .timing-serving-item {
+            padding: 1rem 0;
+            flex-direction: 0 0 30%;
+        }
+        .timing-serving-item:first-child {
+            flex: 1 0 100%;
+        }
+    }
+}
